@@ -16,10 +16,13 @@
             </f:facet>
         <h:form>
             <h:outputText value="Nombre:"/>
-            <p:inputText value="#{myBean.nombre}" maxlength="10"/>
+            <p:inputText value="#{myBean.nombre}" maxlength="10" required="true"
+                         requiredMessage="Escriba el nombre con el que quiere aparecer"/>
             <br/>
             <h:outputText value="Texto:"/>
-            <p:textEditor value="#{myBean.html}" widgetVar="editor1"  height="300" style="margin-bottom:10px"/>
+            <p:textEditor value="#{myBean.html}" widgetVar="editor1"  
+                          height="300" style="margin-bottom:10px"
+                          required="true" requiredMessage="Escriba el texto que quiere integrar"/>
             <p:commandButton action="#{myBean.registraArchivo()}" 
                              value="Registrar archivo"
                              update="@form mensajes"
