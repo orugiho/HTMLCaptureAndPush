@@ -5,13 +5,15 @@
  */
 package mx.com.agiles2018.htmlcapturepush;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.util.Date;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import sun.rmi.runtime.NewThreadAction;
 
 /**
  *
@@ -42,6 +44,12 @@ public class MyBean {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage("Tu archivo se registro con el nombre "
                         + nombre));
+        File file = new File("~/Desktop/"+nombre);
+        try(FileWriter fos = new FileWriter(file)){
+            fos.write(html);
+        }catch(Exception ex){
+              LOG.throwing("MyBean", "registrarArchivo", ex);
+        }
         nombre = "";
         html = "";
 
