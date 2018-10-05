@@ -44,7 +44,7 @@ public class MyBean {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage("Tu archivo se registro con el nombre "
                         + nombre));
-        File file = new File("~/Desktop/"+nombre);
+        File file = new File("/home/ec2-user/workspace/agiles2018MVN/src/main/webapp/html/"+nombre);
         try(FileWriter fos = new FileWriter(file)){
             fos.write(html);
         }catch(Exception ex){
